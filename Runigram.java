@@ -89,7 +89,7 @@ public class Runigram {
 			for (int j = 0; j < image[0].length; j++){
 				print(image[i][j]);
 			}
-			System.err.println();
+			System.out.println();
 		}
 	}
 	
@@ -129,7 +129,7 @@ public class Runigram {
 		int x = pixel.getRed();
 		int y = pixel.getBlue();
 		int z = pixel.getGreen();
-		int lum = (int)(0.299*x  + 0.587*z + 0.114*y);
+		int lum = (int)((double)(0.299*x  + 0.587*z + 0.114*y));
 		Color newPixel = new Color(lum, lum, lum);
 
 		return newPixel;
@@ -185,9 +185,9 @@ public class Runigram {
 		int c = c2.getGreen();
 
 
-		int red = (int)((double)(alpha*x + (1-alpha)*a));
-		int blue = (int)((double)(alpha*y + (1-alpha)*b));
-		int green = (int)((double)(alpha*z + (1-alpha)*c));
+		int red = (int)((double)alpha*x + (1-alpha)*a);
+		int blue = (int)((double)alpha*y + (1-alpha)*b);
+		int green = (int)((double)alpha*z + (1-alpha)*c);
 
 		Color newColor = new Color(red,green,blue);
 
@@ -225,7 +225,7 @@ public class Runigram {
 			target = scaled(target, source[0].length, source.length);
 		}
 		for (int i = 0; i <= n; i++){
-			alpha = ((double)((n-i)/n));
+			alpha = ((double)(n-i)/n);
 			source = blend(source, target, alpha);
 			Runigram.display(source);
 			StdDraw.pause(500);
